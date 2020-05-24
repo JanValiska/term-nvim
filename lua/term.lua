@@ -13,13 +13,11 @@ function M.term_open()
     M.win_handle = api.nvim_tabpage_get_win(0)
     M.buf_handle = api.nvim_win_get_buf(0)
     M.jobID = api.nvim_call_function("termopen", {"$SHELL"})
-    api.nvim_command('wincmd p')
   else
     api.nvim_command('botright split new')
     api.nvim_win_set_height(0, api.nvim_get_var('term_default_height'))
     M.win_handle = api.nvim_tabpage_get_win(0)
     api.nvim_set_current_buf(M.buf_handle)
-    api.nvim_command('wincmd p')
   end
 end
 
